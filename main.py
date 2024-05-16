@@ -37,12 +37,12 @@ if __name__ == '__main__':
         pass
     LoggingHelper.setup_logging(debug)
 
-    df = DataCsvHelper.read_csv()
+    df, index_name = DataCsvHelper.read_csv()
     algorithm, implementation = create_algorithm()
     logging.info(f"====={algorithm.name}=====")
     indexes = implementation.solve(df)
     logging.debug(f"==================")
-    logging.info("Indexes:")
+    logging.info(f"{index_name}:")
     for index in indexes.index:
         logging.info(f"- {index}")
     logging.info(f"==================")
