@@ -40,13 +40,8 @@ if __name__ == '__main__':
     df = DataCsvHelper.read_csv()
     algorithm, implementation = create_algorithm()
     logging.info(f"====={algorithm.name}=====")
-    solution = implementation.solve(df)
-    logging.debug(solution)
+    indexes = implementation.solve(df)
     logging.debug(f"==================")
-    if algorithm == Algorithm.SAVAGE:
-        indexes = solution[solution == solution.min()]
-    else:
-        indexes = solution[solution == solution.max()]
     logging.info("Indexes:")
     for index in indexes.index:
         logging.info(f"- {index}")

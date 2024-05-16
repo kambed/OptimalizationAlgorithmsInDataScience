@@ -1,3 +1,5 @@
+import logging
+
 from algorithms.model import Model
 
 
@@ -8,4 +10,6 @@ class HurwiczModel(Model):
         self.precaution = precaution
 
     def solve(self, df):
-        return df.max(axis=1) * (1 - self.precaution) + df.min(axis=1) * self.precaution
+        step = df.max(axis=1) * (1 - self.precaution) + df.min(axis=1) * self.precaution
+        logging.debug(step)
+        return step[step == step.max()]
