@@ -15,7 +15,7 @@ class WaldsMaximinModel:
 
         logging.debug(f"Row min: {row_min}")
         logging.debug(f"Col max: {col_max}")
-        logging.info(f"Minimax: {minimax}")
-        logging.info(f"Maximin: {maximin}")
+        logging.debug(f"Minimax: {minimax}")
+        logging.debug(f"Maximin: {maximin}")
 
         return minimax, maximin, row_min, col_max
