@@ -7,6 +7,7 @@ from helper.logging_helper import LoggingHelper
 from helper.data_csv_helper import DataCsvHelper
 from algorithms.walds_maximin import WaldsMaximinModel
 from algorithms.dominated_strategies import remove_dominated_strategies
+from algorithms.solve_zero_sum_game import solve_zero_sum_game
 
 if __name__ == '__main__':
     debug = False
@@ -31,3 +32,8 @@ if __name__ == '__main__':
 
         reduced_matrix = remove_dominated_strategies(matrix)
         logging.info(f"Reduced matrix:\n{reduced_matrix}")
+
+        game_value, strategy_A, strategy_B = solve_zero_sum_game(reduced_matrix)
+        logging.info(f"Game value: {game_value}")
+        logging.info(f"Player A strategy: {strategy_A}")
+        logging.info(f"Player B strategy: {strategy_B}")
