@@ -44,4 +44,4 @@ def _solve_lp_problem(matrix, sense):
             problem += lpSum(variables[i] * matrix[j, i] for i in range(row)) <= 1
 
     problem.solve()
-    return [var.varValue for var in variables]
+    return [var.value() for var in variables]
