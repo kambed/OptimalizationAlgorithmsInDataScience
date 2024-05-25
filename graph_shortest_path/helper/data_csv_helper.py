@@ -6,7 +6,7 @@ import pandas as pd
 class DataCsvHelper:
 
     @staticmethod
-    def read_csv(file_path="resources/data.csv", allow_reverse=False):
+    def read_csv(file_path="resources/data.csv", allow_reverse=True):
         with open(file_path, "r") as f:
             lines = f.readlines()
             nodes = sorted(set(itertools.chain(*[line.split(",")[0].split("->") for line in lines])))

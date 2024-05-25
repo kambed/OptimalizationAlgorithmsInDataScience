@@ -1,3 +1,5 @@
+import logging
+
 from graph_shortest_path.algorithms.shortest_path import ShortestPath
 from graph_shortest_path.helper.argument_helper import ConfigHelper
 from graph_shortest_path.helper.data_csv_helper import DataCsvHelper
@@ -12,4 +14,8 @@ if __name__ == '__main__':
     LoggingHelper.setup_logging(debug)
 
     df = DataCsvHelper.read_csv()
-    ShortestPath(df).get_shortest_path("1")
+    paths = ShortestPath(df).get_shortest_path("1")
+    logging.debug("================================")
+    logging.info("Shortest paths:")
+    for path in paths:
+        logging.info(f"{'->'.join(path[2])}->{path[1]} = {path[0]}")
